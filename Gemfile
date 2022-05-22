@@ -58,6 +58,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'pry', '~> 0.13.1'
   gem 'rubocop-rails', require: false
+  gem 'htmlbeautifier'
 end
 
 group :development do
