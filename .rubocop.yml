@@ -2,3 +2,18 @@ require: rubocop-rails
 
 Style/Documentation:
   Enabled: false
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{rails,rake}'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'bin/**'
+    - 'app/controllers/turbo_devise_controller.rb'
+
+Rails:
+  Enabled: true
