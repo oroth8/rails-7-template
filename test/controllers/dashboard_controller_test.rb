@@ -14,4 +14,10 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     get dashboard_path
     assert_response :success
   end
+
+  test 'should redirect to dashboard if user logged in' do
+    sign_in users(:brooks)
+    get root_path
+    assert_redirected_to dashboard_path
+  end
 end
