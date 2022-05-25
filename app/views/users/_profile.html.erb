@@ -1,0 +1,9 @@
+<h2>Profile partial</h2>
+<%= simple_form_for(current_user, method: :put) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :unit %>
+  <%= f.input :postal_code %>
+  <%= f.button :submit %>
+<% end %>

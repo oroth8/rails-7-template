@@ -4,8 +4,11 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+brooks: 
+  email: brooks@gmail.com
+  address: "111 Oxford Ave."
+  unit: "2b"
+  name: "Brooks Ashmore"
+  city: "Kenilworth"
+  postal_code: "60043"
+  main_address?: true
