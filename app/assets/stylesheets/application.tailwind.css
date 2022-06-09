@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .container-primary {
+    @apply max-w-7xl mx-auto sm:px-6 lg:px-8;
+  }
+}
+
 /*
 
 @layer components {
