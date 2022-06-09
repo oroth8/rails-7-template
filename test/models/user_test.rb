@@ -40,4 +40,18 @@ class UserTest < ActiveSupport::TestCase
     assert_equal user.city, city
     assert_equal user.unit, unit
   end
+
+  test 'User missing_fields populate correctly' do
+    user = User.create!(email: 'example@google.com', password: '123test!', name: 'Mike Thomas')
+    assert_equal user, User.find_by(name: 'Mike Thomas')
+
+    missing_fields = %i[address unit city postal_code]
+    assert_equal missing_fields, user.missing_fields
+
+    assert_not user.profile_complete?
+
+    user.update!(address: '123 Chicago Ave', unit: '1A', city: 'Chicago', postal_code: '60601')
+    assert_nil user.missing_fields
+    assert user.profile_complete?
+  end
 end

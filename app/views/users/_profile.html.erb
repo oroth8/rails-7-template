@@ -1,9 +1,37 @@
 <h2>Profile partial</h2>
-<%= simple_form_for(current_user, method: :put) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :city %>
-  <%= f.input :unit %>
-  <%= f.input :postal_code %>
-  <%= f.button :submit %>
-<% end %>
+<div class="space-y-8 divide-y divide-gray-200">
+  <div class="pt-8">
+    <%= simple_form_for(current_user, method: :put) do |f| %>
+      <div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">Complete Profile</h3>
+        <p class="mt-1 text-sm text-gray-500">Please fill in the remaining fields to complete your registration.</p>
+      </div>
+      <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+        <div class="sm:col-span-6">
+          <%= f.input :name, label: "Name", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: "given-name"%>
+        </div>
+        <div class="sm:col-span-6">
+          <%= f.input :address, label: "Street Address", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: "street-address"%>
+        </div>
+        <div class="sm:col-span-6">
+          <%= f.input :unit, label: "Unit/Appartment Number", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: ""%>
+        </div>
+        <div class="sm:col-span-2">
+          <%= f.input :city, label: "City", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: "address-level2"%>
+        </div>
+        <%# TODO Add State %>
+        <div class="sm:col-span-2">
+          <%# <%= f.input :state, label: "State", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: "address-level1"%> %>
+        </div>
+        <div class="sm:col-span-2">
+          <%= f.input :postal_code, label: "Zip/Postal Code", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: "postal-code"%>
+        </div>
+      </div>
+    </div>
+    <div class="pt-5">
+      <div class="flex justify-end">
+        <%= f.button :submit, "Save Profile", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      </div>
+    </div>
+  <% end %>
+</div>
