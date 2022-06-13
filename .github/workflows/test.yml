@@ -1,52 +1,21 @@
-name: Verify
+# Put this in the file: .github/workflows/verify.yml
+
+name: Test
 on: [push]
 
-env:
-  RAILS_ENV: test
-  PGHOST: localhost
-  PGUSER: postgres
-
 jobs:
-  tests:
-    name: Test & lint
+  linters:
+    name: Linters
     runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: tests
-          POSTGRES_DB: west_chestnut_portal_test
-          POSTGRES_PASSWORD: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10ms
-          --health-timeout 500ms
-          --health-retries 15
-        ports: ["5432:5432"]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Start Redis
-        uses: supercharge/redis-github-action@1.2.0
-        with:
-          redis-version: 3.2.12
-
-      - name: Setup Ruby
+      - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
-      - name: Ruby gem cache
-        uses: actions/cache@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - name: Install gems
-        run: |
-          bundle config path vendor/bundle
-          bundle install
+          bundler-cache: true
+
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
@@ -62,26 +31,60 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install packages
-        run: yarn install --pure-lockfile
+        run: |
+          yarn install --pure-lockfile
 
-      - name: Compile
-        run: bin/dev
+      - name: Run linters
+        run: |
+          bin/rubocop --parallel
+          bin/prettier
 
-      # - name: Setup test database
-      #   run: bin/rails db:prepare
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_USER: test
+          POSTGRES_DB: west_chestnut_portal_test
+          POSTGRES_PASSWORD: ""
+        ports: ["5432:5432"]
 
-      # - name: Ruby linter
-      #   run: bundle exec rubocop
-      #   if: always()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # - name: Javascript linter
-      #   run: yarn run eslint app
-      #   if: always()
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
 
-      # - name: ERB linter
-      #   run: bundle exec erblint --lint-all
-      #   if: always()
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.13.0
+      - name: Find yarn cache location
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: JS package cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install packages
+        run: |
+          yarn install --pure-lockfile
+
+      - name: Setup test database
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: myapp
+        run: |
+          bin/rails db:setup
 
       - name: Run tests
-        run: bin/rails test
-        if: always()
+        run: bin/rspec
