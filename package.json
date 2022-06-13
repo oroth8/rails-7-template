@@ -1,0 +1,25 @@
+{
+  "devDependencies": {
+    "husky": "^8.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo ”[Husky] pre-commit”"
+    }
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint:commit": "lint-staged --no-stash"
+  },
+  "lint-staged": {
+    "{*.rb,*.rbi,Dangerfile,Gemfile}": [
+      "bundle exec rubocop --force-exclusion --auto-correct --fail-level autocorrect"
+    ],
+    "**/app.{js,jsx,css,scss,md}": [
+      "prettier --write --ignore-unknown"
+    ],
+    "db/migrate/*.rb": [
+      "bundle exec migration_signature check"
+    ]
+  }
+}
