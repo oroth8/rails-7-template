@@ -37,7 +37,6 @@ jobs:
       - name: Run linters
         run: |
           bundle exec bundle exec rubocop
-          bundle exec prettier
 
   tests:
     name: Tests
