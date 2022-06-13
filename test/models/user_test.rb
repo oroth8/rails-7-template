@@ -33,11 +33,11 @@ class UserTest < ActiveSupport::TestCase
     unit = "2z"
 
     assert user.update!(
-             name: name,
-             address: address,
-             postal_code: postal_code,
-             city: city,
-             unit: unit
+             name:,
+             address:,
+             postal_code:,
+             city:,
+             unit:
            )
     assert user.profile_complete?
     assert_equal user.name, name
