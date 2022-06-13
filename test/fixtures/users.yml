@@ -4,7 +4,7 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-brooks: 
+brooks:
   email: brooks@gmail.com
   address: "111 Oxford Ave."
   unit: "2b"

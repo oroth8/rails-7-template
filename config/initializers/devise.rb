@@ -30,8 +30,8 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '603c7998f7fc55b71971ddef0f68b10e8ba25e5bebb1081ab7644deb807995c43b429d96f59d4de03cb615178abff74df801a1d0b0412a8734223f8fc19cdabb'
 
-  config.parent_controller = 'TurboDeviseController'
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.parent_controller = "TurboDeviseController"
+  config.navigational_formats = ["*/*", :html, :turbo_stream]
 
   config.warden do |manager|
     manager.failure_app = TurboFailureApp
@@ -47,7 +47,8 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender =
+    "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -59,7 +60,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
