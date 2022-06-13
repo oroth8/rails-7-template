@@ -24,5 +24,5 @@ Rails:
 
 Layout/LineLength:
   Max: 120
-Layout/MethodLength:
+Metrics/MethodLength:
   Max: 20
