@@ -34,11 +34,11 @@ class UserTest < ActiveSupport::TestCase
       unit: '2z'
     )
     assert user.profile_complete?
-    assert_equal user.name, name
-    assert_equal user.address, address
-    assert_equal user.postal_code, postal_code
-    assert_equal user.city, city
-    assert_equal user.unit, unit
+    assert_equal user.name, 'Owen Roth'
+    assert_equal user.address, '145 Home'
+    assert_equal user.postal_code, '123456'
+    assert_equal user.city, 'ktown'
+    assert_equal user.unit, '2z'
   end
 
   test 'User missing_fields populate correctly' do
