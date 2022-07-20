@@ -10,6 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+  <%= render 'layouts/shared/navigation/navbar' %>
     <main class="container mx-auto mt-28 px-5 flex">
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
