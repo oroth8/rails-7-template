@@ -22,5 +22,8 @@
     "db/migrate/*.rb": [
       "bundle exec migration_signature check"
     ]
+  },
+  "dependencies": {
+    "stimulus-dropdown": "^2.0.0"
   }
 }

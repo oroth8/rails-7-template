@@ -6,13 +6,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if current_user.update(user_params)
-        format.html { redirect_to dashboard_path, notice: 'User updated' }
+        format.html { redirect_to dashboard_path, notice: 'Profile Updated' }
       else
-        format.html do
-          render :index,
-                 status: :unprocessable_entity,
-                 notice: 'Please fill out all fields'
-        end
+        format.html { redirect_to dashboard_path, alert: current_user.errors, status: :unprocessable_entity }
       end
     end
   end
