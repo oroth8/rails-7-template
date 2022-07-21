@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post "/users/sign_up", to: "devise/registrations#create"
   end
   resources :users, only: %i[index update]
+  resources :associations
 
   root "landing_page#index"
   get "/dashboard", to: "dashboard#index", as: "dashboard"
