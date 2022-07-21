@@ -10,6 +10,7 @@ class User < ApplicationRecord
          :validatable
 
   before_validation :profile_complete?
+  before_save :upcase_unit_field
 
   validates :name, length: { in: 2..30 }, on: :update
   validates :address, length: { in: 4..50 }, on: :update
@@ -31,5 +32,9 @@ class User < ApplicationRecord
 
   def check_for_empty_fields
     USER_FIELDS.select { |f| __send__(f).blank? }
+  end
+
+  def upcase_unit_field
+    return unit.upcase! if self&.unit
   end
 end

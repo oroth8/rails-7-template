@@ -29,16 +29,16 @@ class UserTest < ActiveSupport::TestCase
     assert user.update!(
       name: 'Owen Roth',
       address: '145 Home',
-      postal_code: '123456',
+      postal_code: '12345',
       city: 'ktown',
       unit: '2z'
     )
     assert user.profile_complete?
-    assert_equal user.name, name
-    assert_equal user.address, address
-    assert_equal user.postal_code, postal_code
-    assert_equal user.city, city
-    assert_equal user.unit, unit
+    assert_equal user.name, 'Owen Roth'
+    assert_equal user.address, '145 Home'
+    assert_equal user.postal_code, '12345'
+    assert_equal user.city, 'ktown'
+    assert_equal user.unit, '2Z'
   end
 
   test 'User missing_fields populate correctly' do
