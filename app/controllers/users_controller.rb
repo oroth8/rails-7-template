@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      binding.pry
       if current_user.update(user_params)
         format.html { redirect_to dashboard_path, notice: 'Profile Updated' }
       else
@@ -17,7 +16,7 @@ class UsersController < ApplicationController
   private
 
   def required_params
-    %i[name address city unit postal_code]
+    %i[name address city unit_id postal_code]
   end
 
   def user_params

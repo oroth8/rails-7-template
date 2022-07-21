@@ -11,10 +11,10 @@
           <%= f.input :name, label: "Name", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: "given-name"%>
         </div>
         <div class="sm:col-span-6">
-          <%= f.input :address, label: "Street Address", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: "street-address"%>
+          <%= f.input :address, label: "Address", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {value: current_user.organisation.name, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: "street-address"%>
         </div>
         <div class="sm:col-span-6">
-          <%= f.select :unit, Unit.all, label: "Unit/Appartment Number", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: ""%>
+          <%= f.select :unit_id, Unit.all.collect {|u| [ u.name, u.id ] }, label: "Unit/Appartment Number", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: ""%>
         </div>
         <div class="sm:col-span-2">
           <%= f.input :city, label: "City", label_html: {class: "block text-sm font-medium text-gray-700"}, input_html: {class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"}, autocomplete: "address-level2"%>
