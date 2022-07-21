@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 class Organisation < ApplicationRecord
-  belongs_to :user
+  has_many :user, dependent: :destroy
+  has_many :units, dependent: :destroy
 end

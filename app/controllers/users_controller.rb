@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
+      binding.pry
       if current_user.update(user_params)
         format.html { redirect_to dashboard_path, notice: 'Profile Updated' }
       else

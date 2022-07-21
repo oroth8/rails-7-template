@@ -10,33 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_21_040541) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_21_060735) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "associations", force: :cascade do |t|
-    t.string "name"
-    t.integer "capacity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "organisations", force: :cascade do |t|
     t.string "name", null: false
     t.integer "capacity"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_organisations_on_user_id"
   end
 
   create_table "units", force: :cascade do |t|
     t.string "name"
-    t.string "number"
-    t.bigint "association_id", null: false
+    t.string "number", null: false
+    t.bigint "organisation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["association_id"], name: "index_units_on_association_id"
+    t.index ["organisation_id"], name: "index_units_on_organisation_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,10 +44,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_040541) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "organisation_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["organisation_id"], name: "index_users_on_organisation_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "organisations", "users"
-  add_foreign_key "units", "associations"
+  add_foreign_key "units", "organisations"
+  add_foreign_key "users", "organisations"
 end

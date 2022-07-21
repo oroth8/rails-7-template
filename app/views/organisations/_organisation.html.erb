@@ -11,7 +11,7 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">User:</strong>
-    <%= organisation.user_id %>
+    <%= organisation&.user_ids%>
   </p>
 
   <% if action_name != "show" %>
