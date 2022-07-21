@@ -11,6 +11,12 @@ class User < ApplicationRecord
 
   before_validation :profile_complete?
 
+  validates :name, length: { in: 2..30 }, on: :update
+  validates :address, length: { in: 4..50 }, on: :update
+  validates :unit, length: { in: 1..10 }, on: :update
+  validates :city, length: { in: 2..30 }, on: :update
+  validates :postal_code, length: { is: 5 }, on: :update
+
   USER_FIELDS = %i[name email address unit city postal_code].freeze
 
   def profile_complete?
