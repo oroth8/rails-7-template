@@ -15,7 +15,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
             name: 'Owen Roth',
             address: '145 Home',
             postal_code: '12345',
-            unit: '12v',
+            unit: units(:one_e),
             city: 'ktown'
           },
           id: user.id
@@ -36,7 +36,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
             name: 'Owen Roth',
             address: '',
             postal_code: '12345123123',
-            unit: '12v',
+            unit: units(:one_e),
             city: 'ktown'
           },
           id: user.id
