@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :city, length: { in: 2..30 }, on: :update
   validates :postal_code, length: { is: 5 }, on: :update
   validates :unit, presence: true, on: :update
-  validates :organisation, on: :create
+  validate :organisation, on: :create
   validate :check_registration_code, on: :create
 
   USER_FIELDS = %i[name email address unit_id organisation_id city postal_code].freeze
