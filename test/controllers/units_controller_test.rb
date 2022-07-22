@@ -33,7 +33,6 @@ class UnitsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit' do
-    binding.pry
     get edit_unit_url(@unit)
     assert_response :success
   end
