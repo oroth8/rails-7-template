@@ -6,7 +6,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   test 'should redirect to login if NOT logged in' do
     get dashboard_path
-    assert_redirected_to new_user_session_path
+    assert_redirected_to new_session_path
   end
 
   test 'should render dashboard if user logged in' do
