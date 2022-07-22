@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   private
 
   def required_params
-    %i[name address city unit postal_code]
+    %i[name address city unit_id postal_code]
   end
 
   def user_params
