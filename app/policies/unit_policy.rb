@@ -4,7 +4,7 @@ class UnitPolicy < ApplicationPolicy
   end
 
   def show?
-    auth_user?
+    auth_user? || user.standard?
   end
 
   def update?
@@ -25,6 +25,8 @@ class UnitPolicy < ApplicationPolicy
         scope.all
       elsif user.owner?
         scope.where(organisation: user.organisation)
+      elsif user.standard?
+        scope.where(users: user)
       else
         raise Pundit::NotAuthorizedError, 'not allowed to view this action'
       end
