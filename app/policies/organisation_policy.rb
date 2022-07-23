@@ -1,4 +1,8 @@
 class OrganisationPolicy < ApplicationPolicy
+  def new?
+    admin
+  end
+
   def show?
     auth_user?
   end

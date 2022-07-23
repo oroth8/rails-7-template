@@ -26,6 +26,7 @@ class UnitsController < ApplicationController
   # POST /units or /units.json
   def create
     respond_to do |format|
+      @unit = Unit.new(unit_params)
       if @unit.save
         format.html { redirect_to unit_url(@unit), notice: 'Unit was successfully created.' }
         format.json { render :show, status: :created, location: @unit }

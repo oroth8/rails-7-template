@@ -3,7 +3,9 @@
 require 'test_helper'
 
 class OrganisationsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+    sign_in users(:owen)
     @organisation = organisations(:west_chestnut)
   end
 

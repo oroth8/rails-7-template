@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
+# rails test 'test/controllers/units_controller_test.rb'
+
 require 'test_helper'
 
 class UnitsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+    sign_in users(:owen)
     @unit = units(:one_e)
   end
 

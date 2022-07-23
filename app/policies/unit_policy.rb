@@ -1,4 +1,8 @@
 class UnitPolicy < ApplicationPolicy
+  def new?
+    auth_user?
+  end
+
   def show?
     auth_user?
   end

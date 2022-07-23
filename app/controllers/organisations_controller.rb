@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rails test 'test/controllers/organisations_controller_test.rb'
 class OrganisationsController < ApplicationController
   before_action :set_organisation, only: %i[show edit update destroy]
 
