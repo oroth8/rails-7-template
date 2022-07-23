@@ -13,6 +13,7 @@ owen:
   postal_code: "60642"
   main_address?: true
   organisation: west_chestnut
+  role: admin
 
 brooks:
   email: brooks@gmail.com
@@ -23,6 +24,30 @@ brooks:
   postal_code: "60642"
   main_address?: true
   organisation: west_chestnut
+  role: owner
+
+jamie:
+  email: jamie@gmail.com
+  address: "1107 W Chesnut"
+  unit: two_w
+  name: Jamie Sawyer
+  city: Chicago
+  postal_code: "60642"
+  main_address?: true
+  organisation: west_chestnut
+  role: standard
+
+sabrina:
+  email: sabrina@gmail.com
+  address: "1107 W Chesnut"
+  unit: two_w
+  name: Sabrina Carlins
+  city: Chicago
+  postal_code: "60642"
+  main_address?: true
+  organisation: west_chestnut
+  role: guest
+
 
 basic_user:
   email: example@test.com

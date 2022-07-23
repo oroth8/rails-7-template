@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
+# rails test 'test/controllers/organisations_controller_test.rb'
 class OrganisationsController < ApplicationController
   before_action :set_organisation, only: %i[show edit update destroy]
 
   # GET /organisations or /organisations.json
   def index
-    @organisations = Organisation.all
+    @organisations = policy_scope(Organisation)
   end
 
   # GET /organisations/1 or /organisations/1.json
@@ -14,6 +15,7 @@ class OrganisationsController < ApplicationController
   # GET /organisations/new
   def new
     @organisation = Organisation.new
+    authorize @organisation
     @users = User.all.pluck(:id)
   end
 
@@ -63,10 +65,11 @@ class OrganisationsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_organisation
     @organisation = Organisation.find(params[:id])
+    authorize @organisation
   end
 
   # Only allow a list of trusted parameters through.
   def organisation_params
-    params.require(:organisation).permit(:name, :capacity, :user_id)
+    params.require(:organisation).permit(:name, :capacity)
   end
 end

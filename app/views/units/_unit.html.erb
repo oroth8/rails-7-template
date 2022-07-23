@@ -14,7 +14,7 @@
     <%= unit.organisation_id %>
   </p>
 
-  <% if action_name != "show" %>
+  <% if action_name != "show" && (policy(unit).edit?) %>
     <%= link_to "Show this unit", unit, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this unit', edit_unit_path(unit), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
