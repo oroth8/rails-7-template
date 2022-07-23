@@ -8,6 +8,11 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
+  enum role: { guest: 0, standard: 1, owner: 2, admin: 3 }
+
+  after_initialize do
+    self.role ||= :standard if new_record?
+  end
 
   before_validation :profile_complete?
 
@@ -30,6 +35,10 @@ class User < ApplicationRecord
 
   def missing_fields
     profile_complete? ? nil : check_for_empty_fields
+  end
+
+  def admin?
+    self.role == 'admin'
   end
 
   private

@@ -39,6 +39,8 @@ class UnitsController < ApplicationController
 
   # PATCH/PUT /units/1 or /units/1.json
   def update
+    @unit = Unit.find(params[:id])
+    authorize @unit
     respond_to do |format|
       if @unit.update(unit_params)
         format.html { redirect_to unit_url(@unit), notice: 'Unit was successfully updated.' }
