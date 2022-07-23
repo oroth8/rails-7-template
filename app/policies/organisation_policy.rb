@@ -19,6 +19,8 @@ class OrganisationPolicy < ApplicationPolicy
     def resolve
       if user.admin?
         scope.all
+      elsif user.owner?
+        scope.where(users: user)
       else
         raise Pundit::NotAuthorizedError, 'not allowed to view this action'
       end

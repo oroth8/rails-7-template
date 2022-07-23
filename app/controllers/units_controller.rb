@@ -14,6 +14,7 @@ class UnitsController < ApplicationController
   # GET /units/new
   def new
     @unit = Unit.new
+    authorize @unit
     @orgs = Organisation.all.pluck(:id)
   end
 

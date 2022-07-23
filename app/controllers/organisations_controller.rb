@@ -14,6 +14,7 @@ class OrganisationsController < ApplicationController
   # GET /organisations/new
   def new
     @organisation = Organisation.new
+    authorize @organisation
     @users = User.all.pluck(:id)
   end
 
@@ -68,6 +69,6 @@ class OrganisationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def organisation_params
-    params.require(:organisation).permit(:name, :capacity, :user_id)
+    params.require(:organisation).permit(:name, :capacity)
   end
 end

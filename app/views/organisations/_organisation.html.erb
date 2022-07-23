@@ -10,8 +10,8 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= organisation&.user_ids%>
+    <strong class="block font-medium mb-1">Users:</strong>
+    <%= organisation&.users.pluck(:name)%>
   </p>
 
   <% if action_name != "show" %>

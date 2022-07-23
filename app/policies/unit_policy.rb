@@ -19,8 +19,10 @@ class UnitPolicy < ApplicationPolicy
     def resolve
       if user.admin?
         scope.all
-      else
+      elsif user.owner?
         scope.where(organisation: user.organisation)
+      else
+        raise Pundit::NotAuthorizedError, 'not allowed to view this action'
       end
     end
   end

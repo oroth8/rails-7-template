@@ -37,11 +37,11 @@ class ApplicationPolicy
   end
 
   def standard
-    user.standard? && record.user == user
+    user.standard? && record.users.include?(user)
   end
 
   def owner
-    user.owner? && record.user == user
+    user.owner?
   end
 
   def admin

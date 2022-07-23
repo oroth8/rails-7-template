@@ -2,5 +2,5 @@
 
 class Unit < ApplicationRecord
   belongs_to :organisation
-  has_many :user, dependent: :nullify
+  has_many :users, dependent: :nullify
 end
