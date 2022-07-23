@@ -4,14 +4,27 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
+owen:
+  email: owen@gmail.com
+  address: "1107 W Chestnut"
+  unit: one_e
+  name: Owen Roth
+  city: Chicago
+  postal_code: "60642"
+  main_address?: true
+  organisation: west_chestnut
+
 brooks:
   email: brooks@gmail.com
-  address: "111 Oxford Ave."
-  unit: "2b"
-  name: "Brooks Ashmore"
-  city: "Kenilworth"
-  postal_code: "60043"
+  address: "1107 W Chesnut"
+  unit: two_w
+  name: Brooks Ashmore
+  city: Chicago
+  postal_code: "60642"
   main_address?: true
+  organisation: west_chestnut
 
 basic_user:
   email: example@test.com
+  organisation: west_chestnut
+  unit: one_e
