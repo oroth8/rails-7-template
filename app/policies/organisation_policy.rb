@@ -15,6 +15,16 @@ class OrganisationPolicy < ApplicationPolicy
     auth_user?
   end
 
+  class Scope < Scope
+    def resolve
+      if user.admin?
+        scope.all
+      else
+        raise Pundit::NotAuthorizedError, 'not allowed to view this action'
+      end
+    end
+  end
+
   private
 
   def auth_user?
