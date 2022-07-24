@@ -1,4 +1,8 @@
 class OrganisationPolicy < ApplicationPolicy
+  def index?
+    admin
+  end
+
   def new?
     admin
   end
@@ -21,9 +25,10 @@ class OrganisationPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if user.admin?
+      case user.role
+      when 'admin'
         scope.all
-      elsif user.owner?
+      when 'owner'
         scope.where(users: user)
       else
         raise Pundit::NotAuthorizedError, 'not allowed to view this action'
