@@ -1,22 +1,26 @@
-class UnitPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   def index?
     auth_user?
+  end
+
+  def show?
+    true
+  end
+
+  def create?
+    true
   end
 
   def new?
     auth_user?
   end
 
-  def show?
-    auth_user? || user.standard?
-  end
-
   def update?
-    auth_user?
+    true
   end
 
   def edit?
-    auth_user?
+    true
   end
 
   def destroy?
@@ -31,7 +35,7 @@ class UnitPolicy < ApplicationPolicy
       when 'owner'
         scope.where(organisation: user.organisation)
       when 'standard'
-        scope.where(users: user)
+        scope.where(id: user.id)
       else
         raise Pundit::NotAuthorizedError, 'not allowed to view this action'
       end
