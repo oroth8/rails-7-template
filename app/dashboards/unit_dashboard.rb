@@ -58,15 +58,15 @@ class UnitDashboard < Administrate::BaseDashboard
   # For example to add an option to search for open resources by typing "open:"
   # in the search field:
   #
-  #   COLLECTION_FILTERS = {
-  #     open: ->(resources) { resources.where(open: true) }
-  #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
+  COLLECTION_FILTERS = {
+    name: ->(resources) { resources.where(name:) }
+  }.freeze
+  # COLLECTION_FILTERS = {}.freeze
 
   # Overwrite this method to customize how units are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(unit)
-  #   "Unit ##{unit.id}"
-  # end
+  def display_resource(unit)
+    "#{unit.name} (#{unit.id})"
+  end
 end

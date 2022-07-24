@@ -15,8 +15,6 @@ Rails.application.routes.draw do
     post '/auth/register/signup', to: "users/registrations#create"
   end
   resources :users, only: %i[index update]
-  resources :units
-  resources :organisations
   root "landing_page#index"
   get "/dashboard", to: "dashboard#index", as: "dashboard"
 end

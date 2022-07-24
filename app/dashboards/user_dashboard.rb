@@ -68,15 +68,11 @@ class UserDashboard < Administrate::BaseDashboard
     organisation
     unit
     email
-    encrypted_password
     name
     address
     city
     postal_code
     main_address?
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
     role
   ].freeze
 
@@ -87,15 +83,15 @@ class UserDashboard < Administrate::BaseDashboard
   # For example to add an option to search for open resources by typing "open:"
   # in the search field:
   #
-  #   COLLECTION_FILTERS = {
-  #     open: ->(resources) { resources.where(open: true) }
-  #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
+  COLLECTION_FILTERS = {
+    name: ->(resources) { resources.where(name:) }
+  }.freeze
+  # COLLECTION_FILTERS = {}.freeze
 
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(user)
+    "#{user.name} (#{user.id})"
+  end
 end

@@ -58,15 +58,15 @@ class OrganisationDashboard < Administrate::BaseDashboard
   # For example to add an option to search for open resources by typing "open:"
   # in the search field:
   #
-  #   COLLECTION_FILTERS = {
-  #     open: ->(resources) { resources.where(open: true) }
-  #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
+  COLLECTION_FILTERS = {
+    name: ->(resources) { resources.where(name:) }
+  }.freeze
+  # COLLECTION_FILTERS = {}.freeze
 
   # Overwrite this method to customize how organisations are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(organisation)
-  #   "Organisation ##{organisation.id}"
-  # end
+  def display_resource(organisation)
+    "#{organisation.name} (#{organisation.id})"
+  end
 end
