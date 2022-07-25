@@ -1,7 +1,11 @@
 <%= form_with(model: event, class: "contents") do |form| %>
   <% if event.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+    <div
+      id="error_explanation"
+      class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3"
+    >
+      <h2><%= pluralize(event.errors.count, "error") %>
+        prohibited this event from being saved:</h2>
 
       <ul>
         <% event.errors.each do |error| %>
@@ -25,15 +29,70 @@
     <%= form.label :end_time %>
     <%= form.datetime_field :end_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <div class="flex items-center">
+    <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+    <button
+      data-event-toggle-target="button"
+      type="button"
+      class="
+        bg-gray-200
+        relative
+        inline-flex
+        flex-shrink-0
+        h-6
+        w-11
+        border-2
+        border-transparent
+        rounded-full
+        cursor-pointer
+        transition-colors
+        ease-in-out
+        duration-200
+        focus:outline-none
+        focus:ring-2
+        focus:ring-offset-2
+        focus:ring-indigo-500
+      "
+      role="switch"
+      aria-checked="false"
+      aria-labelledby="annual-billing-label"
+      data-action="click->event-toggle#switch"
+    >
+      <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+      <span
+        data-event-toggle-target="span"
+        aria-hidden="true"
+        class="
+          translate-x-0
+          pointer-events-none
+          inline-block
+          h-5
+          w-5
+          rounded-full
+          bg-white
+          shadow
+          transform
+          ring-0
+          transition
+          ease-in-out
+          duration-200
+        "
+      ></span>
+    </button>
+    <span class="ml-3" id="annual-billing-label">
+      <span class="text-sm font-medium text-gray-900">Repeating?</span>
+    </span>
+  </div>
 
-  <div class="my-5">
+
+<div class="my-5" data-event-toggle-target="dateTypeSelect">
     <%= form.label :date_type %>
-    <%= form.select :date_type, options_for_select(Event.date_types.map {|k,v| [k.capitalize.humanize, v]}), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>  
+    <%= form.select :date_type, options_for_select(Event.date_types.map {|k,v| [k.capitalize.humanize, v]}), {disabled: true}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer my-5" %>
   </div>
 <% end %>
-  
-
