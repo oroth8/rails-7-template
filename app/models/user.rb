@@ -28,6 +28,7 @@ class User < ApplicationRecord
 
   belongs_to :organisation
   belongs_to :unit, optional: true
+  has_many :events, dependent: :destroy
 
   def profile_complete?
     check_for_empty_fields.empty?

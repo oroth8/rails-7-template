@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_time: <%= 2.days.from_now.change(hour: 8) %>
+  end_time: <%= 2.days.from_now.change(hour: 10) %>
+  date_type: nil
+  user: owen
+  repeating: false
+
+two:
+  name: MyString
+  start_time: <%= 2.days.from_now.change(hour: 8) %>
+  end_time: <%= 3.days.from_now.change(hour: 10) %>
+  date_type: nil
+  user: brooks
+  repeating: false
