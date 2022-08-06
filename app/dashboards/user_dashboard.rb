@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'administrate/base_dashboard'
 
 class UserDashboard < Administrate::BaseDashboard
@@ -23,9 +25,10 @@ class UserDashboard < Administrate::BaseDashboard
     remember_created_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    role: Field::Select.with_options(searchable: false, collection: lambda { |field|
-                                                                      field.resource.class.send(field.attribute.to_s.pluralize).keys
-                                                                    })
+    role: Field::Select
+                    .with_options(searchable: false, collection: lambda { |field|
+                                                                   field.resource.class.send(field.attribute.to_s.pluralize).keys
+                                                                 })
   }.freeze
 
   # COLLECTION_ATTRIBUTES

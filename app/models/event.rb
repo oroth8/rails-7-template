@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Event < ApplicationRecord
   belongs_to :user
   enum date_type: { daily: 0, weekly: 1, monthly: 2, annually: 3 }

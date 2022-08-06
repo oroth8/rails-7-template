@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UnitPolicy < ApplicationPolicy
   def index?
     auth_user?

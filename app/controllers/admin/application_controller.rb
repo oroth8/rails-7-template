@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # All Administrate controllers inherit from this
 # `Administrate::ApplicationController`, making it the ideal place to put
 # authentication logic or other before_actions.
@@ -11,9 +13,11 @@ module Admin
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
     def authenticate_admin
+      # rubocop:disable Style/GuardClause
       unless user_signed_in? && (current_user.admin? || current_user.owner?)
         raise Pundit::NotAuthorizedError, 'not allowed to view this action'
       end
+      # rubocop:enable Style/GuardClause
     end
 
     private
