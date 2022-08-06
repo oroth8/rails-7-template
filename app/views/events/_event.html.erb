@@ -14,10 +14,19 @@
     <%= event.end_time %>
   </p>
 
+   <p class="my-5">
+    <strong class="block font-medium mb-1">Repeating?</strong>
+    <%= event.repeating %>
+  </p>
+
+  <% if event.repeating %>
+
   <p class="my-5">
     <strong class="block font-medium mb-1">Type:</strong>
     <%= event.date_type %>
   </p>
+
+  <% end %>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">User:</strong>

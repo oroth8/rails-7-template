@@ -2,14 +2,16 @@
 
 one:
   name: MyString
-  start_time: 2022-07-24 16:07:10
-  end_time: 2022-07-24 16:07:10
-  date_type: 1
+  start_time: <%= 2.days.from_now.change(hour: 8) %>
+  end_time: <%= 2.days.from_now.change(hour: 10) %>
+  date_type: nil
   user: owen
+  repeating: false
 
 two:
   name: MyString
-  start_time: 2022-07-24 16:07:10
-  end_time: 2022-07-24 16:07:10
-  date_type: 1
+  start_time: <%= 2.days.from_now.change(hour: 8) %>
+  end_time: <%= 3.days.from_now.change(hour: 10) %>
+  date_type: nil
   user: brooks
+  repeating: false

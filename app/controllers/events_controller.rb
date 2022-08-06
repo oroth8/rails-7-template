@@ -22,6 +22,7 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
     @event = Event.new(event_params)
+    @event.user = current_user
 
     respond_to do |format|
       if @event.save
@@ -66,7 +67,7 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    filtered_params = params.require(:event).permit(:name, :start_time, :end_time, :date_type, :user_id)
+    filtered_params = params.require(:event).permit(:name, :start_time, :end_time, :date_type, :user_id, :repeating)
     filtered_params[:date_type] = filtered_params[:date_type].to_i
     filtered_params
   end

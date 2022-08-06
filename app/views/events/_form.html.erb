@@ -85,10 +85,11 @@
     </span>
   </div>
 
+  <input data-event-toggle-target="checkbox" name="event[repeating]" type="hidden" value=<%= event.repeating ? "1" : "0"%> autocomplete="off">
 
-<div class="my-5" data-event-toggle-target="dateTypeSelect">
+<div class="my-5 hidden" data-event-toggle-target="dateTypeSelect">
     <%= form.label :date_type %>
-    <%= form.select :date_type, options_for_select(Event.date_types.map {|k,v| [k.capitalize.humanize, v]}), {disabled: true}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :date_type, options_for_select(Event.date_types.map {|k,v| [k.capitalize.humanize, v]}, Event.date_types[event.date_type]), {disabled: true}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
 

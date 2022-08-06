@@ -22,7 +22,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Event.count') do
       post events_url,
            params: { event: { end_time: @event.end_time, name: @event.name, start_time: @event.start_time,
-                              date_type: @event.date_type, user_id: @event.user_id } }
+                              date_type: @event.date_type, user_id: @event.user_id, repeating: @event.repeating } }
     end
 
     assert_redirected_to event_url(Event.last)
@@ -41,7 +41,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   test 'should update event' do
     patch event_url(@event),
           params: { event: { end_time: @event.end_time, name: @event.name, start_time: @event.start_time,
-                             date_type: @event.date_type, user_id: @event.user_id } }
+                             date_type: @event.date_type, user_id: @event.user_id, repeating: @event.repeating } }
     assert_redirected_to event_url(@event)
   end
 
