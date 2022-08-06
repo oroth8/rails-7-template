@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rails test 'test/policies/unit_policy_test.rb'
 require 'test_helper'
 

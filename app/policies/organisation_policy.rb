@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OrganisationPolicy < ApplicationPolicy
   def index?
     admin

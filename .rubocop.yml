@@ -3,6 +3,12 @@ require: rubocop-rails
 Style/Documentation:
   Enabled: false
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
 AllCops:
   NewCops: enable 
   Exclude:
@@ -21,6 +27,6 @@ Rails:
   Enabled: true
 
 Layout/LineLength:
-  Max: 120
+  Max: 135
 Metrics/MethodLength:
   Max: 20

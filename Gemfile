@@ -49,6 +49,7 @@ gem 'bootsnap', require: false
 
 gem 'administrate'
 gem 'devise'
+gem 'figaro'
 gem 'pundit'
 gem 'simple_form'
 
