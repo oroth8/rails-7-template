@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: west_chestnut_portal_development
+  database: west_chestnut_portal_dev
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -79,8 +79,10 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+staging:
+  <<: *default
+  database: west_chestnut_portal_staging
+
 production:
   <<: *default
-  database: west_chestnut_portal_production
-  username: west_chestnut_portal
-  password: <%= ENV["WEST_CHESTNUT_PORTAL_DATABASE_PASSWORD"] %>
+  database: west_chestnut_portal_prod
