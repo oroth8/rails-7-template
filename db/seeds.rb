@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+raise 'SEEDING NOT ALLOWED IN PRODUCTION' if Rails.env.production?
+
 Organisation.destroy_all
 Unit.destroy_all
 User.destroy_all
