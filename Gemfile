@@ -48,6 +48,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 gem 'administrate'
+gem 'barnes'
 gem 'devise'
 gem 'figaro'
 gem 'pundit'

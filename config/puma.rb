@@ -43,3 +43,12 @@ pidfile ENV.fetch("PIDFILE", "tmp/pids/server.pid")
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
+
+begin
+    require "barnes"
+  rescue LoadError # rubocop:disable Lint/SuppressedException
+  end
+  
+  before_fork do
+    Barnes.start if defined?(Barnes)
+  end
