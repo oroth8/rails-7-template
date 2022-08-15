@@ -23,11 +23,7 @@
           }
         ],
         "buildpacks": [
-          { "url": "heroku/nodejs" },
-          { "url": "heroku/ruby" },
-          {
-            "url": "https://github.com/Lostmyname/heroku-buildpack-post-build-clean"
-          }
+          { "url": "heroku/ruby" }
         ]
       }
     }
