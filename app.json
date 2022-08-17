@@ -2,8 +2,6 @@
     "environments": {
       "review": {
         "scripts": {
-          "postdeploy": "bundle exec rails heroku:review:setup",
-          "pr-predestroy": "bundle exec rails heroku:review:destroy"
         },
         "formation": {
           "web": {
@@ -15,12 +13,6 @@
             "RACK_ENV": "review"
         },
         "addons": [
-          {
-            "plan": "heroku-postgresql:hobby-basic",
-            "options": {
-              "version": "14"
-            }
-          }
         ],
         "buildpacks": [
           { "url": "heroku/ruby" }
