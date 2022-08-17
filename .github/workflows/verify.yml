@@ -67,7 +67,7 @@ jobs:
 
       - name: Setup test database
         env:
-          RAILS_ENV: test
+          RAILS_ENV: staging
           PGHOST: ${{secrets.STAGING_DB_HOST}}
           PGUSER: ${{secrets.STAGING_DB_USER}}
         run: |
