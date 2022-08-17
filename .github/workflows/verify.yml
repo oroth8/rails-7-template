@@ -28,7 +28,7 @@ jobs:
 
       - name: Run linters
         run: |
-          rubocop --parallel
+          bin/rubocop --parallel
 
       - name: Run security checks
         run: |
@@ -41,9 +41,9 @@ jobs:
       postgres:
         image: postgres:14.4
         env:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: myapp_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_USER: ${{secrets.STAGING_DB_USER}}
+          POSTGRES_DB: ${{secrets.STAGING_DB_NAME}}
+          POSTGRES_PASSWORD: ${{secrets.STAGING_DB_PASSWORD}}
         ports: ["5432:5432"]
 
     steps:
@@ -68,8 +68,8 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: myapp
+          PGHOST: ${{secrets.STAGING_DB_HOST}}
+          PGUSER: ${{secrets.STAGING_DB_USER}}
         run: |
           bin/rails db:setup
 
