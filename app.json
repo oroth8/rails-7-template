@@ -2,8 +2,6 @@
     "environments": {
       "review": {
         "scripts": {
-          "postdeploy": "bundle exec rails heroku:review:setup",
-          "pr-predestroy": "bundle exec rails heroku:review:destroy"
         },
         "formation": {
           "web": {
@@ -11,23 +9,13 @@
           }
         },
         "env": {
-            "RAILS_ENV": "development",
-            "RACK_ENV": "development"
+            "RAILS_ENV": "review",
+            "RACK_ENV": "review"
         },
         "addons": [
-          {
-            "plan": "heroku-postgresql:hobby-basic",
-            "options": {
-              "version": "14.4"
-            }
-          }
         ],
         "buildpacks": [
-          { "url": "heroku/nodejs" },
-          { "url": "heroku/ruby" },
-          {
-            "url": "https://github.com/Lostmyname/heroku-buildpack-post-build-clean"
-          }
+          { "url": "heroku/ruby" }
         ]
       }
     }
