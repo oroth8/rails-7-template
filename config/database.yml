@@ -9,6 +9,9 @@ development:
   <<: *default
   database: west_chestnut_portal_dev
 
+review:
+  <<: *default
+  url: postgres://yehqhzsyvehhuo:59dcb7c218d8c7744b8ddd79e953a662cb74ad5393555cf50a7e0af50e911b1e@ec2-52-206-182-219.compute-1.amazonaws.com:5432/d20luaqenrs6gs
 
 test:
   <<: *default

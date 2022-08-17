@@ -11,8 +11,8 @@
           }
         },
         "env": {
-            "RAILS_ENV": "development",
-            "RACK_ENV": "development"
+            "RAILS_ENV": "review",
+            "RACK_ENV": "review"
         },
         "addons": [
           {
