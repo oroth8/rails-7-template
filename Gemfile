@@ -53,6 +53,7 @@ gem 'devise'
 gem 'figaro'
 gem 'pundit'
 gem 'simple_form'
+gem 'sorbet-rails'
 gem 'sorbet-runtime'
 # Use Sass to process CSS
 # gem "sassc-rails"

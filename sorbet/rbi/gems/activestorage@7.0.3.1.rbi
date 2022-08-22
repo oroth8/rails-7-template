@@ -476,7 +476,7 @@ class ActiveStorage::Attachment < ::ActiveStorage::Record
     def _reflections; end
     def _validators; end
     def defined_enums; end
-    def with_all_variant_records(*args, **_arg1); end
+    def self.with_all_variant_records(*args); end
   end
 end
 
