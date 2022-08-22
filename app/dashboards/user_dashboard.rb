@@ -19,7 +19,7 @@ class UserDashboard < Administrate::BaseDashboard
     address: Field::String,
     city: Field::String,
     postal_code: Field::String,
-    main_address?: Field::Boolean,
+    main_address: Field::Boolean,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
     remember_created_at: Field::DateTime,
@@ -55,7 +55,7 @@ class UserDashboard < Administrate::BaseDashboard
     address
     city
     postal_code
-    main_address?
+    main_address
     reset_password_token
     reset_password_sent_at
     remember_created_at
@@ -75,7 +75,7 @@ class UserDashboard < Administrate::BaseDashboard
     address
     city
     postal_code
-    main_address?
+    main_address
     role
   ].freeze
 
