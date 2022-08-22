@@ -53,7 +53,7 @@ gem 'devise'
 gem 'figaro'
 gem 'pundit'
 gem 'simple_form'
-
+gem 'sorbet-runtime'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -73,6 +73,8 @@ group :development do
   gem 'erb-formatter'
   gem 'migration_signature'
   gem 'solargraph'
+  gem 'sorbet'
+  gem 'tapioca', require: false
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
