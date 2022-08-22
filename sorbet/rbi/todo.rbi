@@ -5,8 +5,6 @@
 # typed: false
 
 module ::DEBUGGER__::TrapInterceptor; end
-module Administrate::BaseDashboard; end
-module Devise::RegistrationsController; end
 module OrganisationDashboard::Field::DateTime; end
 module OrganisationDashboard::Field::HasMany; end
 module OrganisationDashboard::Field::Number; end

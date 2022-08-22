@@ -1,4 +1,12 @@
 # typed: true
 # frozen_string_literal: true
 
-# Add your extra requires here (`bin/tapioca require` can be used to boostrap this list)
+require 'active_support/core_ext/integer/time'
+require 'administrate'
+require 'administrate/base_dashboard'
+require 'barnes'
+require 'bootsnap/setup'
+require 'bundler/setup'
+require 'devise/orm/active_record'
+require 'rails/all'
+require 'rails/test_help'
