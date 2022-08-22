@@ -52,6 +52,7 @@ gem 'barnes'
 gem 'devise'
 gem 'figaro'
 gem 'pundit'
+gem 'simple_calendar', '~> 2.4'
 gem 'simple_form'
 
 # Use Sass to process CSS
