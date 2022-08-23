@@ -73,7 +73,6 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'erb-formatter'
   gem 'migration_signature'
-  gem 'solargraph'
   gem 'sorbet'
   gem 'tapioca', require: false
   gem 'web-console'
