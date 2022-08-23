@@ -21,6 +21,9 @@
     ],
     "db/migrate/*.rb": [
       "bundle exec migration_signature check"
+    ],
+    "*.rb":[
+      "bundle exec srb tc"
     ]
   },
   "dependencies": {
