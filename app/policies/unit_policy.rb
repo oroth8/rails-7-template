@@ -25,7 +25,7 @@ class UnitPolicy < ApplicationPolicy
     auth_user?
   end
 
-  class Scope
+  class Scope < ApplicationPolicy::Scope
     def resolve
       case user.role
       when 'admin'
