@@ -38,18 +38,6 @@ class User < ApplicationRecord
     profile_complete? ? nil : check_for_empty_fields
   end
 
-  def admin?
-    self.role == 'admin'
-  end
-
-  def owner?
-    self.role == 'owner'
-  end
-
-  def standard?
-    self.role = 'standard'
-  end
-
   private
 
   def check_for_empty_fields

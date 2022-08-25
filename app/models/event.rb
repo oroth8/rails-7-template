@@ -10,13 +10,13 @@ class Event < ApplicationRecord
   # uniqueness: { scope: :organisation_id}
   validate :check_date_timings, if: :start_and_end_times_present?
 
-  before_save :set_repeating
+  # before_save :set_repeating
 
   private
 
-  def set_repeating
-    self.date_type = nil unless repeating
-  end
+  # def set_repeating
+  #   self.date_type = nil unless repeating
+  # end
 
   def start_and_end_times_present?
     start_time && end_time
